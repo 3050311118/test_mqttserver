@@ -1,1 +1,8 @@
- node .\node_modules\mosca\bin\mosca --http-port 2000 --http-static .\ --http-bundle --verbose | node .\node_modules\mosca\node_modules\.bin\bunyan
+#! /bin/sh
+
+basedir=`dirname $0`
+mosca=$basedir/node_modules/bin/mosca
+bunyan=$basedir/node_modules/.bin/bunyan
+
+$mosca --http-port 3000 --http-static $basedir --http-bundle \
+        --verbose | $bunyan
